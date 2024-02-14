@@ -27,7 +27,7 @@ calcularEMC <- function(datos, variablesM) {
   	prueba <- datos[-entrenaI, ]
 
   	# Ajustar modelos de regresión lineal múltiple para cada combinación de variables
-  	for (n_variables_combinadas in 1:length(variables_predictoras)) {
+  	for (n_variables_combinadas in 1:length(variablesM)) {
     		combinaciones_variables <- combina(variablesM, n_variables_combinadas)
     			for (combinacion in combinaciones_variables) {
       			formula <- as.formula(paste("Peso ~", paste(combinacion, collapse = "+")))
@@ -40,7 +40,7 @@ calcularEMC <- function(datos, variablesM) {
   	}
 }
 
-corridas <- 10
+corridas <- 2
 
 for (i in 1:corridas) {
 	# Leer los datos y calcular el error cuadrático medio
