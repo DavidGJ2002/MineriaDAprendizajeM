@@ -40,12 +40,13 @@ calcularEMC <- function(datos, variablesM) {
   	}
 }
 
-corridas <- 2
+corridas <- 5
 
 for (i in 1:corridas) {
 	# Leer los datos y calcular el error cuadrático medio
 	datos <- read.table("Labrisomus.txt", header = TRUE)
 	# Definir las variables predictoras
 	variables_predictoras <- c("LongTotal", "LongPatron", "AltMax", "AltMin")
+	print(paste("Iteración:",i))
 	calcularEMC(datos, variables_predictoras)
 }
